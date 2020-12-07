@@ -1,3 +1,10 @@
+/**
+ * Title: app.component.ts
+ * Author: Professor Krasso
+ * Date: 5th December 2020
+ * Modified By: King Major
+ * Description: app component
+ */
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +13,5 @@ import { Component } from '@angular/core';
   styles: [``]
 })
 export class AppComponent {
-  
+
 }
