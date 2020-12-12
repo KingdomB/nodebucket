@@ -7,12 +7,15 @@
  */
 
 const mongoose = require('mongoose')
+const Item = require('./item')
 
 // Defining db schema
 const employeeSchema = mongoose.Schema({
   empId: { type: String, unique: true, dropDups: true },
   firstname: { type: String },
-  lastname: { type: String }
+  lastname: { type: String },
+  todo: [Item],
+  done: [Item]
 })
 
 module.exports = mongoose.model('Employee', employeeSchema)
