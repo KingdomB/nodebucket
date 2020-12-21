@@ -25,14 +25,25 @@ import {CookieService} from 'ngx-cookie-service';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { TaskCreateDialogComponent } from './shared/task-create-dialog/task-create-dialog.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { AboutComponent } from './pages/about/about.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
+    TaskCreateDialogComponent,
+    AboutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +51,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
+    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled' }),
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -48,11 +59,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule,
+    DragDropModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatListModule,
+    MatDividerModule,
+    MatSnackBarModule
   ],
-  providers: [
-    CookieService
-  ],
+  providers: [CookieService],
   bootstrap: [AppComponent],
+  entryComponents: [ TaskCreateDialogComponent ]
 })
 export class AppModule { }
