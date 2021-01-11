@@ -10,7 +10,7 @@
  * Require statements
  */
 const express = require('express')
-const http = require('http')
+// const http = require('http')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const path = require('path')
@@ -26,11 +26,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, './dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, './dist/nodebucket')))
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(path.dirname + '/dist/nodebucket/index.html'))
+})
 
 /**
  * Variables
  */
-const port = process.env.port || 3000 // server port
+// const port = process.env.port || 3000 // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
 const conn = 'mongodb+srv://admin:admin@buwebdev-cluster-1.ap9uz.mongodb.net/nodebucket?retryWrites=true&w=majority'
@@ -202,6 +205,6 @@ app.delete('/api/employees/:empId/tasks/:taskId', function (req, res, next) {
 /**
  * Create and start server
  */
-app.listen(port, function () {
-  console.log(`Application started and listening on port: ${port}`)
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Application started and listening on port: 3000')
 }) // end http create server function
