@@ -202,6 +202,6 @@ app.delete('/api/employees/:empId/tasks/:taskId', function (req, res, next) {
 /**
  * Create and start server
  */
-http.createServer(app).listen(port, function () {
+app.listen(port, function () {
   console.log(`Application started and listening on port: ${port}`)
 }) // end http create server function
